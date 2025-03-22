@@ -1,18 +1,13 @@
 package com.hamidhosen.todoapp
 
-import java.time.Instant
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.Date
 
+@Entity
 data class Todo(
-    var id: Int,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
     var title: String,
     var createAt: Date
 )
-
-fun getFakeTodo(): List<Todo> {
-    return listOf<Todo>(
-        Todo(1, "First Todo", Date.from(Instant.now())),
-        Todo(2, "First Todo1", Date.from(Instant.now())),
-        Todo(2, "First Todo1", Date.from(Instant.now())),
-    );
-}
