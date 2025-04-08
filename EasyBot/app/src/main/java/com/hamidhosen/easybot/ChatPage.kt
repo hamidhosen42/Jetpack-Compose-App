@@ -36,7 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hamidhosen.easybot.ui.theme.ColorModelMessage
-import com.hamidhosen.easybot.ui.theme.ColorU serMessage
+import com.hamidhosen.easybot.ui.theme.ColorUserMessage
 import com.hamidhosen.easybot.ui.theme.Purple80
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
@@ -101,7 +101,8 @@ fun MessageRow(messageModel: MessageModel) {
             modifier = Modifier.fillMaxWidth()
         ) {
 
-            Box(modifier = Modifier
+            Box(
+                modifier = Modifier
                     .align(if (isModel) Alignment.BottomStart else Alignment.BottomEnd)
                     .padding(
                         start = if (isModel) 8.dp else 70.dp,
@@ -111,13 +112,14 @@ fun MessageRow(messageModel: MessageModel) {
                     )
                     .clip(RoundedCornerShape(48f))
                     .background(if (isModel) ColorModelMessage else ColorUserMessage)
-                    .padding(16.dp)) {
+                    .padding(16.dp)
+            ) {
 
                 SelectionContainer {
                     Text(
                         text = messageModel.message,
                         fontWeight = FontWeight.W500,
-                        color = Color.White
+                        color = Color.Red
                     )
                 }
 
