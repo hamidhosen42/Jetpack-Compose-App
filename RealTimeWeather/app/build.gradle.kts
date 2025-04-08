@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.hamidhosen.realtimeweather"
-        minSdk = 25
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -66,4 +66,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    val retrofitVersion = "2.11.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    implementation("androidx.compose.runtime:runtime-livedata:1.7.8")
+    implementation("io.coil-kt:coil-compose:2.6.0")
 }
