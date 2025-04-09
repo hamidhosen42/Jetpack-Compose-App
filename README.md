@@ -8,3 +8,7 @@
 ### ChatBot Gemini android app 🔥
 
 <img src="AppImage/EasyBot1.png" alt="EasyBot"/>
+
+### Firebase Authentication android app 🔥
+
+<img src="AppImage/FirebaseAuthDemoApp1.png" alt="FirebaseAuthDemoApp"/>
