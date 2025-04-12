@@ -24,13 +24,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.hamidhosen.easyshop.AppUtil
 import com.hamidhosen.easyshop.R
 import com.hamidhosen.easyshop.viewmodel.AuthViewModel
 
 @Composable
-fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController,authViewModel: AuthViewModel) {
+fun SignupScreen(
+    modifier: Modifier = Modifier,
+    navController: NavHostController,
+    authViewModel: AuthViewModel = viewModel()
+) {
 
     var name by remember {
         mutableStateOf("")
@@ -42,6 +47,10 @@ fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController
 
     var password by remember {
         mutableStateOf("")
+    }
+
+    var isLoading by remember {
+        mutableStateOf(false)
     }
 
     var context = LocalContext.current
@@ -134,22 +143,48 @@ fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController
             modifier = Modifier.height(20.dp)
         )
 
+
         Button(
             onClick = {
-                authViewModel.signup(name,email,password){ success,errorMessage ->
-                    if (success){
+                when {
+                    name.isBlank() -> {
+                        AppUtil.showTest(context, "Full name is required")
+                    }
 
-                    }else{
-                        AppUtil.showTest(context,errorMessage?:"Something went wrong")
+                    email.isBlank() -> {
+                        AppUtil.showTest(context, "Email is required")
+                    }
+
+                    password.isBlank() -> {
+                        AppUtil.showTest(context, "Password is required")
+                    }
+
+                    else -> {
+                        isLoading = true
+                        authViewModel.signup(name, email, password) { success, errorMessage ->
+                            isLoading = false
+                            if (success) {
+                                navController.navigate("home") {
+                                    popUpTo("auth") {
+                                        inclusive = true
+                                    }
+                                }
+                            } else {
+                                isLoading = false
+                                AppUtil.showTest(context, errorMessage ?: "Something went wrong")
+                            }
+                        }
                     }
                 }
             },
+            enabled = !isLoading,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp)
         ) {
-            Text("Signup", fontSize = 20.sp)
+            Text(if(isLoading)"Creating" else "Signup", fontSize = 20.sp)
         }
+
 
         Spacer(modifier = Modifier.height(15.dp))
 
