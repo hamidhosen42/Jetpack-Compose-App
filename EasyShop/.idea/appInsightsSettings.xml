@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.hamidhosen.easyshop" />
+                  <option name="mobileSdkAppId" value="1:233573093732:android:8a2042d6a4e5c45388ea71" />
+                  <option name="projectId" value="easyshop-7b912" />
+                  <option name="projectNumber" value="233573093732" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

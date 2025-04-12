@@ -8,9 +8,10 @@ import androidx.navigation.compose.rememberNavController
 import com.hamidhosen.easyshop.screen.AuthScreen
 import com.hamidhosen.easyshop.screen.LoginScreen
 import com.hamidhosen.easyshop.screen.SignupScreen
+import com.hamidhosen.easyshop.viewmodel.AuthViewModel
 
 @Composable
-fun AppNavigation(modifier: Modifier = Modifier) {
+fun AppNavigation(modifier: Modifier = Modifier,authViewModel: AuthViewModel) {
 
     val navController = rememberNavController()
 
@@ -26,7 +27,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         }
 
         composable("signup") {
-            SignupScreen(modifier,navController)
+            SignupScreen(modifier, navController, authViewModel)
         }
     }
 }

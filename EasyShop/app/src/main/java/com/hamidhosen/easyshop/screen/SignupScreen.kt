@@ -17,6 +17,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -24,10 +25,12 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.hamidhosen.easyshop.AppUtil
 import com.hamidhosen.easyshop.R
+import com.hamidhosen.easyshop.viewmodel.AuthViewModel
 
 @Composable
-fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController) {
+fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController,authViewModel: AuthViewModel) {
 
     var name by remember {
         mutableStateOf("")
@@ -40,6 +43,8 @@ fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController
     var password by remember {
         mutableStateOf("")
     }
+
+    var context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -131,7 +136,13 @@ fun SignupScreen(modifier: Modifier = Modifier, navController: NavHostController
 
         Button(
             onClick = {
+                authViewModel.signup(name,email,password){ success,errorMessage ->
+                    if (success){
 
+                    }else{
+                        AppUtil.showTest(context,errorMessage?:"Something went wrong")
+                    }
+                }
             },
             modifier = Modifier
                 .fillMaxWidth()
