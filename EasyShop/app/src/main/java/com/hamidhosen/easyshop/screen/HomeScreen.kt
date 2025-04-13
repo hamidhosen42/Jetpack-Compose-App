@@ -16,10 +16,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import com.hamidhosen.easyshop.Pages.CartPage
-import com.hamidhosen.easyshop.Pages.FavoritePage
-import com.hamidhosen.easyshop.Pages.HomePage
-import com.hamidhosen.easyshop.Pages.ProfilePage
+import com.hamidhosen.easyshop.pages.CartPage
+import com.hamidhosen.easyshop.pages.FavoritePage
+import com.hamidhosen.easyshop.pages.HomePage
+import com.hamidhosen.easyshop.pages.ProfilePage
 import com.hamidhosen.easyshop.model.NavItem
 
 @Composable

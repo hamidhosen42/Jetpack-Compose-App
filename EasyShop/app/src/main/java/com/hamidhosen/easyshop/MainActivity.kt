@@ -13,7 +13,9 @@ import com.hamidhosen.easyshop.ui.theme.EasyShopTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
+
         setContent {
             EasyShopTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
