@@ -2,6 +2,7 @@ package com.hamidhosen.easyshop.pages
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,7 +17,7 @@ fun HomePage(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        HeaderView()
-//        BannerView()
+        HeaderView(modifier)
+        BannerView(modifier = Modifier.height(200.dp))
     }
 }
