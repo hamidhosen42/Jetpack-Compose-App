@@ -84,4 +84,7 @@ dependencies {
 
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+    implementation("com.talhafaki:compose-dots-indicator:1.0.0")
+
+
 }

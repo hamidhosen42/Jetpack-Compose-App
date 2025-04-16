@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.hamidhosen.easyshop.pages.CategoryProductPage
+import com.hamidhosen.easyshop.pages.ProductDetailsPage
 import com.hamidhosen.easyshop.screen.AuthScreen
 import com.hamidhosen.easyshop.screen.HomeScreen
 import com.hamidhosen.easyshop.screen.LoginScreen
@@ -45,6 +46,11 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         composable("category-products/{categoryId}") {
             val categoryId = it.arguments?.getString("categoryId") ?: ""
             CategoryProductPage(modifier, categoryId)
+        }
+
+        composable("products-details/{productId}") {
+            val productId = it.arguments?.getString("productId") ?: ""
+            ProductDetailsPage(modifier, productId?:"")
         }
     }
 }
