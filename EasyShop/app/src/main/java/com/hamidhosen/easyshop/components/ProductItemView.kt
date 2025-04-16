@@ -92,7 +92,7 @@ fun ProductItemView(modifier: Modifier = Modifier, product: ProductModel) {
 
                 }) {
                     Icon(
-                        imageVector = Icons.Default.ShoppingCart, contentDescription = "Add to Cart"
+                        imageVector = Icons.Default.ShoppingCart, contentDescription = "Add to Cart",
                     )
                 }
             }
